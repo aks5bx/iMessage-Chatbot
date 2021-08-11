@@ -44,7 +44,7 @@ Index | Datetime | Text | I_Sent | UserID | chatID |
 In order to make the data usable, I conducting the following simple data processing steps 
 - Mapped users ids to user names (anonymized for this repo)
 - Converted data type for datetime
-- Created a column that calculates how many seconds after the previous text the text came in
+- Created a column that calculates how many seconds after the previous text the text came in (TimeAfterPrevious)
 - Created a second grouped dataframe, grouping number of total characters, total texts, and characters per text send by each user 
 
 Here is the grouped dataframe 
@@ -61,3 +61,22 @@ Me	|16346.0	|231	|70.761905 |
 Friend5|	4398.0	|62	|70.935484 |
 Friend8	|14028.0	|187	|75.016043 |
 
+### Marking a "Conversation" 
+
+In order to do further analysis, I wanted to segment the dataframe on a conversation-level. As in, I wanted all the texts belonging to one conversation, then all the texts belonding to another conversation, etc. 
+
+To achieve this, I made the decision that a conversation ends if there is no reply within 15 minutes. This was based off of some data exploration and was rooted in my personal understanding of how this group chat operated. This certainly can be modified and fine tuned. 
+
+Based on this and the TimeAfterPrevious column, I was able to assign every text message (i.e. every row) a conversation ID. Using the conversation ID, I was also able to create a dictionary that included every conversation ID and who participated in that conversation. The dictionary key was the converation ID and the dictioanry value was a list of all participants. 
+
+## Leveraging a Graphical Network 
+
+Given that I had all of my group chat's conversations AND who participated in them, I wanted to see how I could understanding individual connections within the group. I wanted to understand who tended to text together - in other words, which people tend to jump in the same conversations? 
+
+To do this, I built a graph using NetworkX with each user as nodes and the number of shared conversations they had as edge weights. Unfortunately, those who engaged in more conversations overall had stronger edge weights with everyone. In order to avoid this, I decided to scale the number of shared conversations two people had by the number of overall conversations they engaged in. 
+
+The formula I produced for edge weight was: 
+
+edge Between User A and User B = \frac{% of A's Conversations that B is a part of}{% of B's Conversations that A is a part of} / 2
+
+Where A's conversations are all converations A is a part of (vis versa for B's conversations). 
