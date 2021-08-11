@@ -37,4 +37,28 @@ Index | Datetime | Text | I_Sent | UserID | chatID |
 | --- | --- | --- | --- |--- |--- |
 1 | 2021-07-16 16:57:22 | 'Sample text message' | 0 | 5 | chat602411273960483331 |
 
+## Data Processing
+
+### Data Cleaning/Labelings
+
+In order to make the data usable, I conducting the following simple data processing steps 
+- Mapped users ids to user names (anonymized for this repo)
+- Converted data type for datetime
+- Created a column that calculates how many seconds after the previous text the text came in
+- Created a second grouped dataframe, grouping number of total characters, total texts, and characters per text send by each user 
+
+Here is the grouped dataframe 
+
+User | Characters | Texts | Characters/Text
+| --- | --- | --- |
+
+Friend1	| 17390.0	|293	|59.351536
+Friend4	| 31618.0	|531	|59.544256
+Friend2|	31571.0	|530	|59.567925
+Friend6|	8546.0	|136	|62.838235
+Friend3|	17792.0	|258	|68.961240
+Friend7|	11009.0	|157	|70.121019
+Me	|16346.0	|231	|70.761905
+Friend5|	4398.0	|62	|70.935484
+Friend8	|14028.0	|187	|75.016043
 
