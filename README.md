@@ -5,6 +5,10 @@
 
 The "Group Chat" is a cultural advent that took the world by storm in lockstep with the popularization of texting. Throw your close friends into a single message group and you've got the Group Chat. The Group Chat in this project involves myself and eight of my friends shooting the breeze on a daily basis. The group is active and includes messages from all participants. I decided to analyze how this group operates by diving into the text data. What follows is an overview of what I did and the findings my work yielded. 
 
+## Why is this Repo Named iMessage-Chatbot 
+
+Good question! I originally wanted to build a chatbot out of my iMessage data. However, I quickly realized that I both did not have enough data on my Macbook and did not have a clean flow of conversation that many chatbot trainers (such as Chatterbot) require. A brief attempt is included in the python file for this repo. 
+
 ## Data Sourcing 
 
 I sourced data by querying the chat.db database, which is a hidden but ultimately available database built into any Mac OS. I leaned on a public GitHub repository (https://stmorse.github.io/journal/iMessage.html) to access the database. From there, I tried various queries to extract the information I needed. I ultimately discovered the following query: 
@@ -88,3 +92,10 @@ Where A's conversations are all converations A is a part of (vis versa for B's c
 
 An image of the graph is included below. 
 ![alt text](https://github.com/aks5bx/iMessage-Chatbot/blob/main/GraphImage.png)
+
+## Current Development 
+
+Currently, I am working on adding the following to this analysis
+- Sentiment Analysis Over Time: analyzing the sentiment of text messages over by day and by conversation 
+- Adding Sentiment as an Edge Attribute: adding information regarding the typical sentiment two users engage with (as in, do two users tend to share conversations that are positive? negative?) 
+- Edge Weight Over Time: how does the relationship between two users change over time? 
