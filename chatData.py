@@ -6,10 +6,9 @@
 ## Importing libraries
 import pandas as pd 
 pd.set_option('display.max_rows', None)
-from chatterbot.trainers import ListTrainer
-from chatterbot import ChatBot
 import networkx as nx
 from math import isnan
+from pyvis.network  import Network
 
 ## Read in Data
 chatData = pd.read_csv('chatExport.csv', header = None)
@@ -118,16 +117,42 @@ for user in usersList:
 sortedEdges = sorted(G.edges(data=True), key=lambda t: t[2].get('weight', 1), reverse=True)
 
 
-    
+#%%
+#####################
+### DISPLAY GRAPH ###
+#####################
 
+nt = Network('500px', '500px')
+nt.from_nx(G)
+nt.show('nx.html')
+
+
+
+#%% 
+########################################
+### SENTIMENT ANALYSIS - IN PROGRESS ###
+########################################
+import numpy as np
+import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+
+tokens = tokenizer.encode('It was good but couldve been better. Great', return_tensors='pt')
+print(tokens)
+
+result = model(tokens)
+result.logits
+print(int(torch.argmax(result.logits))+1)
 
 
 # %%
-#######################
-### CHATBOT ATTEMPT ###
-#######################
+################################
+### CHATBOT ATTEMPT - FAILED ###
+################################
 
-## Not enough training data, conversations weren't direct enough
+## Conclusion: Not enough training data, conversations weren't direct enough
 
 chatDataList = chatData['Text'].tolist()
 chatDataList = [str(i) for i in chatDataList]
