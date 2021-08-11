@@ -20,14 +20,14 @@ chatData.head(50)
 #####################
 2
 ## Mapping User ID to User Name
-di = {0: "Adi", 1: "Shubs", 2: "Morgan", 3: "Steve", 4: "Jesse", 5: "Andrew", 6: "Geoff", 7: "Connor", 8: "Will"}
+di = {0: "Me", 1: "Friend1", 2: "Friend2", 3: "Friend3", 4: "Friend4", 5: "Friend5", 6: "Friend6", 7: "Friend7", 8: "Friend8"}
 chatData['User'] = chatData["UserID"].map(di)
 
 ## Changing Datetime data type
 chatData['Datetime'] = pd.to_datetime(chatData['Datetime'])
 
 ## Number of Messages/Reactions by User 
-chatData['User'].value_counts().plot(kind='bar')
+chatData['User'].value_counts().plot(kind='bar', title = 'Number of Texts by User')
 
 ## Number of characters per text 
 chatData['Characters'] = chatData['Text'].str.len()
