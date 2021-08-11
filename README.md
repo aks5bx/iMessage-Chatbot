@@ -33,8 +33,8 @@ I exported this table to a csv as outlined in the aforementioned GitHub reposito
 
 Because of the sensitive nature of the text messages, I am not attaching the dataset for this project. However, below is a preview of the dataframe that I used after I read it into a Pandas Dataframe. 
 
- | Datetime | Text | I_Sent | UserID | chatID |
---- | --- | --- | --- |--- |--- |
-2021-07-16 16:57:22 | 'Sample text message' | 0 | 5 | chat602411273960483331 |
+Index | Datetime | Text | I_Sent | UserID | chatID |
+| --- | --- | --- | --- |--- |--- |
+1 | 2021-07-16 16:57:22 | 'Sample text message' | 0 | 5 | chat602411273960483331 |
 
 
