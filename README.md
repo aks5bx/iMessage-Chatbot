@@ -61,6 +61,9 @@ Me	|16346.0	|231	|70.761905 |
 Friend5|	4398.0	|62	|70.935484 |
 Friend8	|14028.0	|187	|75.016043 |
 
+From this grouped dataframe, I am able to make simply analyses and visualizations. An example is below: 
+![alt text](https://github.com/aks5bx/iMessage-Chatbot/blob/main/NumberofTexts.png)
+
 ### Marking a "Conversation" 
 
 In order to do further analysis, I wanted to segment the dataframe on a conversation-level. As in, I wanted all the texts belonging to one conversation, then all the texts belonding to another conversation, etc. 
