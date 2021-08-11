@@ -5,9 +5,13 @@
 
 The "Group Chat" is a cultural advent that took the world by storm in lockstep with the popularization of texting. Throw your close friends into a single message group and you've got the Group Chat. The Group Chat in this project involves myself and eight of my friends shooting the breeze on a daily basis. The group is active and includes messages from all participants. I decided to analyze how this group operates by diving into the text data. What follows is an overview of what I did and the findings my work yielded. 
 
+## Why is this Repo Named iMessage-Chatbot 
+
+Good question! I originally wanted to build a chatbot out of my iMessage data. However, I quickly realized that I both did not have enough data on my Macbook and did not have a clean flow of conversation that many chatbot trainers (such as Chatterbot) require. A brief attempt is included in the python file for this repo. 
+
 ## Data Sourcing 
 
-I sourced data by querying the chat.db database, which is a hidden but ultimately available database built into any Mac OS. I leaned on a public GitHub repository (https://stmorse.github.io/journal/iMessage.html) to access the database. From there, I tried various queries to extract the information I needed. I ultimately discovered the following query: 
+I sourced data by querying the chat.db database, which is a hidden but ultimately available database built into any Mac OS. I leaned on a public GitHub repository (https://stmorse.github.io/journal/iMessage.html) to access the database. From there, I came up with various queries to extract the information I needed. I ultimately found success with the following query: 
 
 ~~~~sql
 SELECT
@@ -61,6 +65,11 @@ Me	|16346.0	|231	|70.761905 |
 Friend5|	4398.0	|62	|70.935484 |
 Friend8	|14028.0	|187	|75.016043 |
 
+
+From this grouped dataframe, I am able to make simple analyses and visualizations. An example is below: 
+
+![alt text](https://github.com/aks5bx/iMessage-Chatbot/blob/main/NumberofTexts.png)
+
 ### Marking a "Conversation" 
 
 In order to do further analysis, I wanted to segment the dataframe on a conversation-level. As in, I wanted all the texts belonging to one conversation, then all the texts belonding to another conversation, etc. 
@@ -84,3 +93,11 @@ edge Between User A & User B = [(% of A's Conversations that B is a part of) + (
 Where A's conversations are all converations A is a part of (vis versa for B's conversations). From this, I am amble to report the edge weights between all users. Using Pyvis, I also was able to visualize this graph and export it as an HTML file. (Because of the package versioning, the tooltip edge weight functionality is not included, but should be as the package updates). 
 
 An image of the graph is included below. 
+![alt text](https://github.com/aks5bx/iMessage-Chatbot/blob/main/GraphImage.png)
+
+## Current Development 
+
+Currently, I am working on adding the following to this analysis
+- Sentiment Analysis Over Time: analyzing the sentiment of text messages over by day and by conversation 
+- Adding Sentiment as an Edge Attribute: adding information regarding the typical sentiment two users engage with (as in, do two users tend to share conversations that are positive? negative?) 
+- Edge Weight Over Time: how does the relationship between two users change over time? 
