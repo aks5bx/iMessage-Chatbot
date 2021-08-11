@@ -81,4 +81,6 @@ The formula I produced for edge weight was:
 edge Between User A & User B = [(% of A's Conversations that B is a part of) + (% of B's Conversations that A is a part of)] / 2
 ~~~~
 
-Where A's conversations are all converations A is a part of (vis versa for B's conversations). 
+Where A's conversations are all converations A is a part of (vis versa for B's conversations). From this, I am amble to report the edge weights between all users. Using Pyvis, I also was able to visualize this graph and export it as an HTML file. (Because of the package versioning, the tooltip edge weight functionality is not included, but should be as the package updates). 
+
+An image of the graph is included below. 
