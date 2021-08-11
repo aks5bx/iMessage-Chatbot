@@ -49,16 +49,16 @@ In order to make the data usable, I conducting the following simple data process
 
 Here is the grouped dataframe 
 
-User | Characters | Texts | Characters/Text
+User | Characters | Texts | Characters/Text |
 | --- | --- | --- |
 
-Friend1	| 17390.0	|293	|59.351536
-Friend4	| 31618.0	|531	|59.544256
-Friend2|	31571.0	|530	|59.567925
-Friend6|	8546.0	|136	|62.838235
-Friend3|	17792.0	|258	|68.961240
-Friend7|	11009.0	|157	|70.121019
-Me	|16346.0	|231	|70.761905
-Friend5|	4398.0	|62	|70.935484
-Friend8	|14028.0	|187	|75.016043
+Friend1	| 17390.0	|293	|59.351536 |
+Friend4	| 31618.0	|531	|59.544256 |
+Friend2|	31571.0	|530	|59.567925 |
+Friend6|	8546.0	|136	|62.838235 | 
+Friend3|	17792.0	|258	|68.961240 |
+Friend7|	11009.0	|157	|70.121019 |
+Me	|16346.0	|231	|70.761905 | 
+Friend5|	4398.0	|62	|70.935484 |
+Friend8	|14028.0	|187	|75.016043 |
 
