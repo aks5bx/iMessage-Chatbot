@@ -50,7 +50,7 @@ In order to make the data usable, I conducting the following simple data process
 Here is the grouped dataframe 
 
 User | Characters | Texts | Characters/Text |
-| --- | --- | --- |
+| --- | --- | --- |--- |
 
 Friend1	| 17390.0	|293	|59.351536 |
 Friend4	| 31618.0	|531	|59.544256 |
