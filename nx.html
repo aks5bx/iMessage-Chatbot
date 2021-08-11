@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "Adi", "label": "Adi", "shape": "dot", "size": 10}, {"id": "Shubs", "label": "Shubs", "shape": "dot", "size": 10}, {"id": "Morgan", "label": "Morgan", "shape": "dot", "size": 10}, {"id": "Steve", "label": "Steve", "shape": "dot", "size": 10}, {"id": "Jesse", "label": "Jesse", "shape": "dot", "size": 10}, {"id": "Andrew", "label": "Andrew", "shape": "dot", "size": 10}, {"id": "Geoff", "label": "Geoff", "shape": "dot", "size": 10}, {"id": "Connor", "label": "Connor", "shape": "dot", "size": 10}, {"id": "Will", "label": "Will", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "Adi", "to": "Shubs", "weight": 0.5454545454545454}, {"from": "Adi", "to": "Morgan", "weight": 0.6136363636363636}, {"from": "Adi", "to": "Steve", "weight": 0.4727272727272727}, {"from": "Adi", "to": "Jesse", "weight": 0.4274193548387097}, {"from": "Adi", "to": "Andrew", "weight": 0.5333333333333333}, {"from": "Adi", "to": "Geoff", "weight": 0.5681818181818182}, {"from": "Adi", "to": "Connor", "weight": 0.375}, {"from": "Adi", "to": "Will", "weight": 0.36363636363636365}, {"from": "Shubs", "to": "Morgan", "weight": 0.6637168141592921}, {"from": "Shubs", "to": "Steve", "weight": 0.5909090909090909}, {"from": "Shubs", "to": "Jesse", "weight": 0.5564516129032258}, {"from": "Shubs", "to": "Andrew", "weight": 0.8}, {"from": "Shubs", "to": "Geoff", "weight": 0.6590909090909091}, {"from": "Shubs", "to": "Connor", "weight": 0.2920353982300885}, {"from": "Shubs", "to": "Will", "weight": 0.39823008849557523}, {"from": "Morgan", "to": "Steve", "weight": 0.7181818181818181}, {"from": "Morgan", "to": "Jesse", "weight": 0.6935483870967742}, {"from": "Morgan", "to": "Andrew", "weight": 0.8}, {"from": "Morgan", "to": "Geoff", "weight": 0.6818181818181818}, {"from": "Morgan", "to": "Connor", "weight": 0.2635135135135135}, {"from": "Morgan", "to": "Will", "weight": 0.32432432432432434}, {"from": "Steve", "to": "Jesse", "weight": 0.6181818181818182}, {"from": "Steve", "to": "Andrew", "weight": 0.20909090909090908}, {"from": "Steve", "to": "Geoff", "weight": 0.2818181818181818}, {"from": "Steve", "to": "Connor", "weight": 0.39090909090909093}, {"from": "Steve", "to": "Will", "weight": 0.42727272727272725}, {"from": "Jesse", "to": "Andrew", "weight": 0.13709677419354838}, {"from": "Jesse", "to": "Geoff", "weight": 0.22580645161290322}, {"from": "Jesse", "to": "Connor", "weight": 0.27419354838709675}, {"from": "Jesse", "to": "Will", "weight": 0.3951612903225806}, {"from": "Andrew", "to": "Geoff", "weight": 0.2727272727272727}, {"from": "Andrew", "to": "Connor", "weight": 0.5}, {"from": "Andrew", "to": "Will", "weight": 0.4}, {"from": "Geoff", "to": "Connor", "weight": 0.36363636363636365}, {"from": "Geoff", "to": "Will", "weight": 0.5681818181818182}, {"from": "Connor", "to": "Will", "weight": 0.25287356321839083}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
