@@ -23,3 +23,18 @@ WHERE chat.chat_identifier = 'chat602411273960483331'  ORDER BY
     message_date ASC;
 ~~~~
 
+This query extracts and formates the datetime of the message, the text contents of the message, whether I sent the message, who sent the message, and finally the message ID. 
+
+I had to find the chat_identifier ID of my group chat. In order to do this I queried all of the Messsage table in chat.db and manually grabbed my chat_identifier. This is not a perfect system, but a little bit of digging should allow anyone to get the chat identifier that they need. 
+
+I exported this table to a csv as outlined in the aforementioned GitHub repository. 
+
+## Data Preview 
+
+Because of the sensitive nature of the text messages, I am not attaching the dataset for this project. However, below is a preview of the dataframe that I used after I read it into a Pandas Dataframe. 
+
+ | Datetime | Text | I_Sent | UserID | chatID |
+--- | --- | --- | --- |--- |--- |
+2021-07-16 16:57:22 | 'Sample text message' | 0 | 5 | chat602411273960483331 |
+
+
