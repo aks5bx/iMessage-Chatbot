@@ -11,7 +11,7 @@ Good question! I originally wanted to build a chatbot out of my iMessage data. H
 
 ## Data Sourcing 
 
-I sourced data by querying the chat.db database, which is a hidden but ultimately available database built into any Mac OS. I leaned on a public GitHub repository (https://stmorse.github.io/journal/iMessage.html) to access the database. From there, I tried various queries to extract the information I needed. I ultimately discovered the following query: 
+I sourced data by querying the chat.db database, which is a hidden but ultimately available database built into any Mac OS. I leaned on a public GitHub repository (https://stmorse.github.io/journal/iMessage.html) to access the database. From there, I came up with various queries to extract the information I needed. I ultimately found success with the following query: 
 
 ~~~~sql
 SELECT
